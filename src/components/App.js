@@ -1,13 +1,24 @@
 
-import React from "react";
-import './../styles/App.css';
+import React, { useState } from "react";
+import LoginForm from "./LoginForm";
 
 const App = () => {
-  return (
+  const [isLoggedIn, setIsLoggedIn]=useState(false)
+
+  const handleLogin = () =>{
+    setIsLoggedIn(true);
+  }
+
+
+
+  return(
     <div>
-        {/* Do not remove the main div */}
+      <p>{isLoggedIn ? "You are Logged in" : "Please log in"}</p>
+      {!isLoggedIn && <LoginForm onLogin={handleLogin}/>}
+
     </div>
   )
+
 }
 
-export default App
+export default App;
